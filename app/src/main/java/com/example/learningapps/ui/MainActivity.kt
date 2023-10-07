@@ -6,6 +6,7 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.content.res.AppCompatResources
 import com.example.learningapps.R
 import com.example.learningapps.data.DataNumber
 import com.example.learningapps.databinding.ActivityMainBinding
@@ -17,8 +18,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     private val mainViewModel by viewModels<MainViewModel>()
     private var value: Int? = null
     private var type: Boolean? = null
-    private var number = DataNumber(value, type)
-
+    private var first_number = DataNumber(value, type)
+    private var second_number = DataNumber(value, type)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,19 +30,31 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         binding.btnNumber1.setOnClickListener(this)
         binding.btnNumber2.setOnClickListener(this)
+        binding.btnAdd.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
         when (v.id) {
             R.id.btn_number_1 -> {
-                number.value = 1
-                showAlertDialog()
-                mainViewModel.getNumber(number)
+                first_number.value = 1
+                showAlertDialog(FIRST_NUMBER)
+                mainViewModel.getNumber(first_number, FIRST_NUMBER)
             }
+
+//            R.id.btn_number_2 -> {
+//                second_number.value = 1
+//                showAlertDialog(SECOND_NUMBER)
+//                mainViewModel.getNumber(second_number, SECOND_NUMBER)
+//            }
+
+//            R.id.btn_add -> {
+//                val result = mainViewModel.AddNumber(first_number.value, second_number.value)
+//                Toast.makeText(this, "$result", Toast.LENGTH_SHORT).show()
+//            }
         }
     }
 
-    private fun showAlertDialog() {
+    private fun showAlertDialog(type: Int) {
         val dialogTitle = "Pilih jenis bilangan"
         val dialogMessage = "Pilihlah jenis bilangan"
         val alertDialogBuilder = AlertDialog.Builder(this@MainActivity)
@@ -50,28 +63,45 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             setMessage(dialogMessage)
             setCancelable(false)
             setPositiveButton(getString(R.string.positive)) { _, _ ->
-                number.type = true
-                Toast.makeText(this@MainActivity, "${number.value}", Toast.LENGTH_SHORT).show()
+                if (type == FIRST_NUMBER){
+                    mainViewModel.setNumber(first_number, true)
+                    Toast.makeText(this@MainActivity, "${first_number.value}", Toast.LENGTH_SHORT)
+                        .show()
+                } else {
+                    mainViewModel.setNumber(second_number, true)
+                    Toast.makeText(this@MainActivity, "${second_number.value}", Toast.LENGTH_SHORT)
+                        .show()
+                }
                 setImageNumber()
             }
             setNegativeButton(getString(R.string.negative)) { _, _ ->
-                number.type = false
-                number.value = -1
-                Toast.makeText(this@MainActivity, "${number.value}", Toast.LENGTH_SHORT).show()
-                setImageNumber()
+                mainViewModel.setNumber(first_number, false)
+                mainViewModel.setNumber(second_number, false)
+                Toast.makeText(this@MainActivity, "${first_number.value}", Toast.LENGTH_SHORT)
+                    .show()
+                Toast.makeText(this@MainActivity, "${second_number.value}", Toast.LENGTH_SHORT)
+                    .show()
             }
             val alertDialog = alertDialogBuilder.create()
             alertDialog.show()
         }
     }
 
-    private fun setImageNumber(){
-        mainViewModel.numberData.observe(this){
-            if (it.type == true){
-                binding.ivFirstNumber.setImageDrawable(getDrawable(R.drawable.baseline_add_24))
+    private fun setImageNumber() {
+        mainViewModel.firstNumber.observe(this) {
+            if (it.type == true) {
+                binding.ivFirstNumber.setImageDrawable(AppCompatResources.getDrawable(
+                    binding.ivFirstNumber.context,
+                    R.drawable.baseline_add_24)
+                )
             } else {
-                binding.ivFirstNumber.setImageDrawable(getDrawable(R.drawable.baseline_remove_24))
+                binding.ivFirstNumber.setImageDrawable(AppCompatResources.getDrawable(binding.ivFirstNumber.context,R.drawable.baseline_remove_24))
             }
         }
+    }
+
+    companion object {
+        const val FIRST_NUMBER = 1
+        const val SECOND_NUMBER = 2
     }
 }
