@@ -14,24 +14,40 @@ import com.example.learningapps.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     private val imagePositiveMap = mapOf<Int, Int>(
-        1 to R.drawable.baseline_add_24,
-        2 to R.drawable.baseline_remove_24,
-        3 to R.drawable.ic_launcher_background,
-        4 to R.drawable.ic_launcher_foreground
+        1 to R.drawable.tanda_01,
+        2 to R.drawable.tanda_02,
+        3 to R.drawable.tanda_03,
+        4 to R.drawable.tanda_04,
+        5 to R.drawable.tanda_05,
+        6 to R.drawable.tanda_06,
+        7 to R.drawable.tanda_07,
+        8 to R.drawable.tanda_08,
+        9 to R.drawable.tanda_09
     )
 
     private val imageNegativeMap = mapOf<Int, Int>(
-        1 to R.drawable.baseline_add_24,
-        2 to R.drawable.baseline_remove_24,
-        3 to R.drawable.ic_launcher_background,
-        4 to R.drawable.ic_launcher_foreground
+        1 to R.drawable.tanda_10,
+        2 to R.drawable.tanda_11,
+        3 to R.drawable.tanda_12,
+        4 to R.drawable.tanda_13,
+        5 to R.drawable.tanda_14,
+        6 to R.drawable.tanda_15,
+        7 to R.drawable.tanda_16,
+        8 to R.drawable.tanda_17,
+        9 to R.drawable.tanda_18
+
     )
 
     private val imageNetralMap = mapOf<Int, Int>(
-        1 to R.drawable.baseline_add_24,
-        2 to R.drawable.baseline_remove_24,
-        3 to R.drawable.ic_launcher_background,
-        4 to R.drawable.ic_launcher_foreground
+        1 to R.drawable.tanda_19,
+        2 to R.drawable.tanda_20,
+        3 to R.drawable.tanda_21,
+        4 to R.drawable.tanda_22,
+        5 to R.drawable.tanda_23,
+        6 to R.drawable.tanda_24,
+        7 to R.drawable.tanda_25,
+        8 to R.drawable.tanda_26,
+        9 to R.drawable.tanda_27
     )
 
     private lateinit var binding: ActivityMainBinding
@@ -70,7 +86,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         binding.ivSecondNumber8.setOnClickListener(this)
         binding.ivSecondNumber9.setOnClickListener(this)
 
-        binding.ivMinus.setOnClickListener{
+        binding.ivMinus.setOnClickListener {
             isAdd = false
         }
 
@@ -207,7 +223,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             setMessage(dialogMessage)
             setCancelable(false)
             setPositiveButton(getString(R.string.positive)) { _, _ ->
-                if (type == FIRST_NUMBER){
+                if (type == FIRST_NUMBER) {
                     mainViewModel.setNumber(first_number, true)
                     Toast.makeText(this@MainActivity, "${first_number.value}", Toast.LENGTH_SHORT)
                         .show()
@@ -220,7 +236,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 }
             }
             setNegativeButton(getString(R.string.negative)) { _, _ ->
-                if (type == FIRST_NUMBER){
+                if (type == FIRST_NUMBER) {
                     mainViewModel.setNumber(first_number, false)
                     Toast.makeText(this@MainActivity, "${first_number.value}", Toast.LENGTH_SHORT)
                         .show()
@@ -238,51 +254,89 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun setImageNumber() {
+        val posKey = imagePositiveMap.keys
+        val negKey = imageNegativeMap.keys
         mainViewModel.firstNumber.observe(this) {
             if (it.type == true) {
-                binding.ivFirstNumber.setImageDrawable(AppCompatResources.getDrawable(
-                    binding.ivFirstNumber.context,
-                    R.drawable.baseline_add_24)
-                )
+                for (k in posKey) {
+                    if (k == it.value) {
+                        binding.ivFirstNumber.setImageDrawable(
+                            AppCompatResources.getDrawable(
+                                binding.ivFirstNumber.context,
+                                imagePositiveMap.getValue(k)
+                            )
+                        )
+                    }
+                }
             } else {
-                binding.ivFirstNumber.setImageDrawable(AppCompatResources.getDrawable(binding.ivFirstNumber.context,R.drawable.baseline_remove_24))
+                for (k in negKey) {
+                    if (k == it.value) {
+                        binding.ivFirstNumber.setImageDrawable(
+                            AppCompatResources.getDrawable(
+                                binding.ivFirstNumber.context,
+                                imageNegativeMap.getValue(k)
+                            )
+                        )
+                    }
+                }
             }
         }
     }
 
     private fun setSecondImageNumber() {
+        val posKey = imagePositiveMap.keys
+        val negKey = imageNegativeMap.keys
         mainViewModel.secondNumber.observe(this) {
             if (it.type == true) {
-                binding.ivSecondNumber.setImageDrawable(AppCompatResources.getDrawable(
-                    binding.ivSecondNumber.context,
-                    R.drawable.baseline_add_24)
-                )
+                for (k in posKey) {
+                    if (k == it.value) {
+                        binding.ivSecondNumber.setImageDrawable(
+                            AppCompatResources.getDrawable(
+                                binding.ivSecondNumber.context,
+                                imagePositiveMap.getValue(k)
+                            )
+                        )
+                    }
+                }
             } else {
-                binding.ivSecondNumber.setImageDrawable(AppCompatResources.getDrawable(binding.ivSecondNumber.context,R.drawable.baseline_remove_24))
+                for (k in negKey) {
+                    if (k == it.value) {
+                        binding.ivSecondNumber.setImageDrawable(
+                            AppCompatResources.getDrawable(
+                                binding.ivSecondNumber.context,
+                                imageNegativeMap.getValue(k)
+                            )
+                        )
+                    }
+                }
             }
         }
     }
 
-    private fun setImageResultList(result: Int){
+    private fun setImageResultList(result: Int) {
+        var imageResult: Int
         val key = imagePositiveMap.keys
-        if (result > 0){
-            for (k in key){
-                if (result == k ){
+        val keySecond = imageNegativeMap.keys
+        if (result > 0) {
+            imageResult = Math.abs(result)
+            for (k in key) {
+                if (imageResult == k) {
                     binding.ivResult.setImageDrawable(
                         AppCompatResources.getDrawable(
                             binding.ivResult.context,
-                            imagePositiveMap.getValue(result)
+                            imagePositiveMap.getValue(imageResult)
                         )
                     )
                 }
             }
-        } else {
-            for (k in key){
-                if (result == k ){
+        } else if (result < 0) {
+            imageResult = Math.abs(result)
+            for (k in keySecond) {
+                if (imageResult == k) {
                     binding.ivResult.setImageDrawable(
                         AppCompatResources.getDrawable(
                             binding.ivResult.context,
-                            imageNegativeMap.getValue(result)
+                            imageNegativeMap.getValue(imageResult)
                         )
                     )
                 }
@@ -291,29 +345,48 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
 
 
-
-    fun restCals(firstNumber: Int, secondNumber: Int){
-        val firstRest = Math.abs(firstNumber)
-        val secondRest = Math.abs(secondNumber)
-        if (firstRest < secondRest){
+    fun restCals(firstNumber: Int, secondNumber: Int) {
+        if (firstNumber > 0 && secondNumber > 0){
             binding.ivRest.setImageDrawable(
                 AppCompatResources.getDrawable(
                     binding.ivResult.context,
-                    imageNetralMap.getValue(firstRest)
+                    R.drawable.ic_launcher_background
                 )
             )
         } else{
-            binding.ivRest.setImageDrawable(
-                AppCompatResources.getDrawable(
-                    binding.ivResult.context,
-                    imageNetralMap.getValue(secondRest)
-                )
-            )
+            val firstRest = Math.abs(firstNumber)
+            val secondRest = Math.abs(secondNumber)
+            val key = imageNetralMap.keys
+            if (firstRest < secondRest) {
+                for (k in key) {
+                    if (firstRest == k) {
+                        binding.ivRest.setImageDrawable(
+                            AppCompatResources.getDrawable(
+                                binding.ivResult.context,
+                                imageNetralMap.getValue(firstRest)
+                            )
+                        )
+                    }
+                }
+            } else if(secondRest < firstRest) {
+                for (k in key) {
+                    if (secondRest == k) {
+                        binding.ivRest.setImageDrawable(
+                            AppCompatResources.getDrawable(
+                                binding.ivResult.context,
+                                imageNetralMap.getValue(secondRest)
+                            )
+                        )
+                    }
+                }
+            }
+
         }
+
     }
 
-    fun setCals(isAdd: Boolean){
-        if (isAdd){
+    fun setCals(isAdd: Boolean) {
+        if (isAdd) {
             binding.tvCals.text = "${first_number.value} + ${second_number.value} ="
         } else {
             binding.tvCals.text = "${first_number.value} - ${second_number.value} ="
@@ -321,17 +394,14 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     }
 
-    fun finalResult(isAdd: Boolean) {
+    private fun finalResult(isAdd: Boolean) {
         var result: Int
-        var imageResult: Int
-        if (isAdd){
+        if (isAdd) {
             result = mainViewModel.add(first_number.value, second_number.value)
-            imageResult = Math.abs(result)
-            setImageResultList(imageResult)
+            setImageResultList(result)
         } else {
             result = mainViewModel.minus(first_number.value!!, second_number.value!!)
-            imageResult = Math.abs(result)
-            setImageResultList(imageResult)
+            setImageResultList(result)
         }
         binding.tvFinalResult.setText("$result")
     }
