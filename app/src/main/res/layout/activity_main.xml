@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.MainActivity"
-    android:padding="16dp">
+    android:padding="16dp"
+    tools:context=".ui.MainActivity">
 
     <ImageView
         android:id="@+id/iv_first_number"
@@ -25,9 +25,9 @@
         android:layout_marginTop="20dp"
         android:contentDescription="@string/second_image_number"
         android:src="@drawable/ic_launcher_background"
-        app:layout_constraintStart_toEndOf="@+id/iv_first_number"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintStart_toEndOf="@+id/iv_first_number"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/iv_number_1"
@@ -263,6 +263,15 @@
         app:layout_constraintBottom_toBottomOf="@+id/iv_add"
         app:layout_constraintStart_toEndOf="@+id/iv_add"
         app:layout_constraintTop_toTopOf="@+id/iv_add" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="62dp"
+        app:layout_constraintStart_toStartOf="@+id/iv_second_number_4"
+        app:layout_constraintTop_toBottomOf="@+id/iv_second_number_4" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
