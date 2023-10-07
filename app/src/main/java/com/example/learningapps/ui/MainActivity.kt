@@ -57,10 +57,18 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         binding.ivSecondNumber8.setOnClickListener(this)
         binding.ivSecondNumber9.setOnClickListener(this)
 
-        binding.ivAdd.setOnClickListener {
+        binding.ivMinus.setOnClickListener{
+            val min = mainViewModel.minus(first_number.value!!, second_number.value!!)
+            println("$first_number - $second_number = $min")
+        }
+
+
+        binding.btnCount.setOnClickListener {
             val result = mainViewModel.add(first_number.value, second_number.value)
             setImageResultList(result)
             Toast.makeText(this, "$result", Toast.LENGTH_SHORT).show()
+            setCals()
+            finalResult()
         }
     }
 
@@ -242,9 +250,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     fun setImageResultList(result: Int){
-        Log.d("SETIMAGE", "result: $result")
         Log.d("SETIMAGE", "result: ${imageList.getValue(result)}")
-        Log.d("SETIMAGE", "result: ${imageList.get(result)}")
         val key = imageList.keys
         if (result > 0){
             for (k in key){
@@ -260,6 +266,15 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         } else {
             Log.d("TAG", "setImageResultList: gada apa bang")
         }
+    }
+
+    fun setCals(){
+        binding.tvCals.text = "${first_number.value} + ${second_number.value} ="
+    }
+
+    fun finalResult() {
+        val min = mainViewModel.add(first_number.value, second_number.value)
+        binding.tvFinalResult.setText("$min")
     }
 
     companion object {

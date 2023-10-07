@@ -49,4 +49,6 @@ class MainViewModel: ViewModel() {
         }
         return 0
     }
+
+    fun minus(a: Int, b: Int): Int = a - b
 }
