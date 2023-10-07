@@ -27,10 +27,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         setContentView(binding.root)
 
         setImageNumber()
+        setSecondImageNumber()
 
         binding.btnNumber1.setOnClickListener(this)
-        binding.btnNumber2.setOnClickListener(this)
-        binding.btnAdd.setOnClickListener(this)
+        binding.btnSecondNumber1.setOnClickListener(this)
+        binding.btnSecondNumber2.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
@@ -41,11 +42,17 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 mainViewModel.getNumber(first_number, FIRST_NUMBER)
             }
 
-//            R.id.btn_number_2 -> {
-//                second_number.value = 1
-//                showAlertDialog(SECOND_NUMBER)
-//                mainViewModel.getNumber(second_number, SECOND_NUMBER)
-//            }
+            R.id.btn_second_number_1 -> {
+                second_number.value = 1
+                showAlertDialog(SECOND_NUMBER)
+                mainViewModel.getNumber(second_number, SECOND_NUMBER)
+            }
+
+            R.id.btn_second_number_2 -> {
+                second_number.value = 2
+                showAlertDialog(SECOND_NUMBER)
+                mainViewModel.getNumber(second_number, SECOND_NUMBER)
+            }
 
 //            R.id.btn_add -> {
 //                val result = mainViewModel.AddNumber(first_number.value, second_number.value)
@@ -67,12 +74,13 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                     mainViewModel.setNumber(first_number, true)
                     Toast.makeText(this@MainActivity, "${first_number.value}", Toast.LENGTH_SHORT)
                         .show()
+                    setImageNumber()
                 } else {
-                    mainViewModel.setNumber(second_number, true)
+                    mainViewModel.setSecondNumber(second_number, true)
                     Toast.makeText(this@MainActivity, "${second_number.value}", Toast.LENGTH_SHORT)
                         .show()
+                    setSecondImageNumber()
                 }
-                setImageNumber()
             }
             setNegativeButton(getString(R.string.negative)) { _, _ ->
                 mainViewModel.setNumber(first_number, false)
@@ -96,6 +104,19 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 )
             } else {
                 binding.ivFirstNumber.setImageDrawable(AppCompatResources.getDrawable(binding.ivFirstNumber.context,R.drawable.baseline_remove_24))
+            }
+        }
+    }
+
+    private fun setSecondImageNumber() {
+        mainViewModel.secondNumber.observe(this) {
+            if (it.type == true) {
+                binding.ivSecondNumber.setImageDrawable(AppCompatResources.getDrawable(
+                    binding.ivSecondNumber.context,
+                    R.drawable.baseline_add_24)
+                )
+            } else {
+                binding.ivSecondNumber.setImageDrawable(AppCompatResources.getDrawable(binding.ivSecondNumber.context,R.drawable.baseline_remove_24))
             }
         }
     }

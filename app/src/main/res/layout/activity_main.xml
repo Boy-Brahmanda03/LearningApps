@@ -33,21 +33,148 @@
         android:id="@+id/btn_number_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:text="@string/number_1"
         app:layout_constraintEnd_toEndOf="@+id/iv_first_number"
+        app:layout_constraintHorizontal_bias="0.034"
         app:layout_constraintStart_toStartOf="@+id/iv_first_number"
         app:layout_constraintTop_toBottomOf="@+id/iv_first_number" />
 
     <Button
-        android:id="@+id/btn_number_2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:id="@+id/btn_number_9"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="40dp"
+        android:layout_height="47dp"
+        android:background="@color/black"
+        android:text="@string/number_6"
+        tools:layout_editor_absoluteX="99dp"
+        tools:layout_editor_absoluteY="135dp" />
+
+    <Button
+        android:id="@+id/btn_second_number_1"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="156dp"
+        android:background="@color/black"
         android:text="@string/number_1"
+
         app:layout_constraintEnd_toEndOf="@+id/iv_second_number"
-        app:layout_constraintStart_toStartOf="@+id/iv_second_number"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/iv_second_number" />
+
+    <Button
+        android:id="@+id/btn_second_number_2"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_width="55dp"
+        android:layout_height="50dp"
+        android:background="@color/black"
+        android:text="@string/number_2"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_second_number_1"
+        app:layout_constraintEnd_toEndOf="@+id/iv_second_number"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/btn_second_number_1"
+        app:layout_constraintTop_toBottomOf="@+id/btn_number_9"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/btn_second_number_3"
+        style="@style/butt"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@color/black"
+        android:text="@string/number_3"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_second_number_1"
+        app:layout_constraintEnd_toEndOf="@+id/iv_second_number"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/btn_second_number_2"
+        app:layout_constraintTop_toTopOf="@+id/btn_second_number_1"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/btn_second_number_4"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="53dp"
+        android:layout_height="48dp"
+        android:background="@color/black"
+        android:text="@string/number_4"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_second_number_1"
+        app:layout_constraintEnd_toEndOf="@+id/iv_second_number"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/btn_second_number_3"
+        app:layout_constraintTop_toTopOf="@+id/btn_second_number_1"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/btn_second_number_5"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="54dp"
+        android:layout_height="47dp"
+        android:background="@color/black"
+        android:text="@string/number_5"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_second_number_1"
+        app:layout_constraintEnd_toEndOf="@+id/iv_second_number"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/btn_second_number_4"
+        app:layout_constraintTop_toTopOf="@+id/btn_second_number_1"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/btn_second_number_6"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="54dp"
+        android:layout_height="47dp"
+        android:background="@color/black"
+        android:text="@string/number_6"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_second_number_1"
+        app:layout_constraintEnd_toEndOf="@+id/iv_second_number"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/btn_second_number_5"
+        app:layout_constraintTop_toTopOf="@+id/btn_second_number_1"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/btn_second_number_7"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="54dp"
+        android:layout_height="47dp"
+        android:background="@color/black"
+        android:text="@string/number_7"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_second_number_1"
+        app:layout_constraintEnd_toEndOf="@+id/iv_second_number"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/btn_second_number_6"
+        app:layout_constraintTop_toTopOf="@+id/btn_second_number_1"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/btn_second_number_8"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="54dp"
+        android:layout_height="47dp"
+        android:background="@color/black"
+        android:text="@string/number_8"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_second_number_1"
+        app:layout_constraintEnd_toEndOf="@+id/iv_second_number"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/btn_second_number_7"
+        app:layout_constraintTop_toTopOf="@+id/btn_second_number_1"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/btn_second_number_9"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="54dp"
+        android:layout_height="47dp"
+        android:background="@color/black"
+        android:text="@string/number_9"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_second_number_1"
+        app:layout_constraintEnd_toEndOf="@+id/iv_second_number"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/btn_second_number_8"
+        app:layout_constraintTop_toTopOf="@+id/btn_second_number_1"
+        app:layout_constraintVertical_bias="1.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
