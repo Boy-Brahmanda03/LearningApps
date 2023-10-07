@@ -21,7 +21,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         4 to R.drawable.ic_launcher_foreground
     )
 
-
     private lateinit var binding: ActivityMainBinding
     private val mainViewModel by viewModels<MainViewModel>()
     private var value: Int? = null
@@ -265,6 +264,26 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             }
         } else {
             Log.d("TAG", "setImageResultList: gada apa bang")
+        }
+    }
+
+    fun restCals(firstNumber: Int, secondNumber: Int){
+        val firstRest = Math.abs(firstNumber)
+        val secondRest = Math.abs(secondNumber)
+        if (firstNumber < secondNumber){
+            binding.ivRest.setImageDrawable(
+                AppCompatResources.getDrawable(
+                    binding.ivResult.context,
+                    imageList.getValue(firstNumber)
+                )
+            )
+        } else{
+            binding.ivRest.setImageDrawable(
+                AppCompatResources.getDrawable(
+                    binding.ivResult.context,
+                    imageList.getValue(secondNumber)
+                )
+            )
         }
     }
 
