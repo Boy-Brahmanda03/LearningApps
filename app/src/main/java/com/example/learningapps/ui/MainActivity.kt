@@ -189,12 +189,17 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 }
             }
             setNegativeButton(getString(R.string.negative)) { _, _ ->
-                mainViewModel.setNumber(first_number, false)
-                mainViewModel.setNumber(second_number, false)
-                Toast.makeText(this@MainActivity, "${first_number.value}", Toast.LENGTH_SHORT)
-                    .show()
-                Toast.makeText(this@MainActivity, "${second_number.value}", Toast.LENGTH_SHORT)
-                    .show()
+                if (type == FIRST_NUMBER){
+                    mainViewModel.setNumber(first_number, false)
+                    Toast.makeText(this@MainActivity, "${first_number.value}", Toast.LENGTH_SHORT)
+                        .show()
+                    setImageNumber()
+                } else {
+                    mainViewModel.setSecondNumber(second_number, false)
+                    Toast.makeText(this@MainActivity, "${second_number.value}", Toast.LENGTH_SHORT)
+                        .show()
+                    setSecondImageNumber()
+                }
             }
             val alertDialog = alertDialogBuilder.create()
             alertDialog.show()
