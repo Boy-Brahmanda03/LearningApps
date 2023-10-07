@@ -1,7 +1,6 @@
 package com.example.learningapps.ui
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
@@ -14,7 +13,21 @@ import com.example.learningapps.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 
-    private val imageList = mapOf<Int, Int>(
+    private val imagePositiveMap = mapOf<Int, Int>(
+        1 to R.drawable.baseline_add_24,
+        2 to R.drawable.baseline_remove_24,
+        3 to R.drawable.ic_launcher_background,
+        4 to R.drawable.ic_launcher_foreground
+    )
+
+    private val imageNegativeMap = mapOf<Int, Int>(
+        1 to R.drawable.baseline_add_24,
+        2 to R.drawable.baseline_remove_24,
+        3 to R.drawable.ic_launcher_background,
+        4 to R.drawable.ic_launcher_foreground
+    )
+
+    private val imageNetralMap = mapOf<Int, Int>(
         1 to R.drawable.baseline_add_24,
         2 to R.drawable.baseline_remove_24,
         3 to R.drawable.ic_launcher_background,
@@ -27,6 +40,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     private var type: Boolean? = null
     private var first_number = DataNumber(value, type)
     private var second_number = DataNumber(value, type)
+    private var isAdd: Boolean = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,17 +71,18 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         binding.ivSecondNumber9.setOnClickListener(this)
 
         binding.ivMinus.setOnClickListener{
-            val min = mainViewModel.minus(first_number.value!!, second_number.value!!)
-            println("$first_number - $second_number = $min")
+            isAdd = false
+        }
+
+        binding.ivAdd.setOnClickListener {
+            isAdd = true
         }
 
 
         binding.btnCount.setOnClickListener {
-            val result = mainViewModel.add(first_number.value, second_number.value)
-            setImageResultList(result)
-            Toast.makeText(this, "$result", Toast.LENGTH_SHORT).show()
-            setCals()
-            finalResult()
+            setCals(isAdd)
+            finalResult(isAdd)
+            restCals(first_number.value!!, second_number.value!!)
         }
     }
 
@@ -248,52 +263,77 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
-    fun setImageResultList(result: Int){
-        Log.d("SETIMAGE", "result: ${imageList.getValue(result)}")
-        val key = imageList.keys
+    private fun setImageResultList(result: Int){
+        val key = imagePositiveMap.keys
         if (result > 0){
             for (k in key){
                 if (result == k ){
                     binding.ivResult.setImageDrawable(
                         AppCompatResources.getDrawable(
                             binding.ivResult.context,
-                            imageList.getValue(result)
+                            imagePositiveMap.getValue(result)
                         )
                     )
                 }
             }
         } else {
-            Log.d("TAG", "setImageResultList: gada apa bang")
+            for (k in key){
+                if (result == k ){
+                    binding.ivResult.setImageDrawable(
+                        AppCompatResources.getDrawable(
+                            binding.ivResult.context,
+                            imageNegativeMap.getValue(result)
+                        )
+                    )
+                }
+            }
         }
     }
+
+
 
     fun restCals(firstNumber: Int, secondNumber: Int){
         val firstRest = Math.abs(firstNumber)
         val secondRest = Math.abs(secondNumber)
-        if (firstNumber < secondNumber){
+        if (firstRest < secondRest){
             binding.ivRest.setImageDrawable(
                 AppCompatResources.getDrawable(
                     binding.ivResult.context,
-                    imageList.getValue(firstNumber)
+                    imageNetralMap.getValue(firstRest)
                 )
             )
         } else{
             binding.ivRest.setImageDrawable(
                 AppCompatResources.getDrawable(
                     binding.ivResult.context,
-                    imageList.getValue(secondNumber)
+                    imageNetralMap.getValue(secondRest)
                 )
             )
         }
     }
 
-    fun setCals(){
-        binding.tvCals.text = "${first_number.value} + ${second_number.value} ="
+    fun setCals(isAdd: Boolean){
+        if (isAdd){
+            binding.tvCals.text = "${first_number.value} + ${second_number.value} ="
+        } else {
+            binding.tvCals.text = "${first_number.value} - ${second_number.value} ="
+        }
+
     }
 
-    fun finalResult() {
-        val min = mainViewModel.add(first_number.value, second_number.value)
-        binding.tvFinalResult.setText("$min")
+    fun finalResult(isAdd: Boolean) {
+        var result: Int
+        var imageResult: Int
+        if (isAdd){
+            result = mainViewModel.add(first_number.value, second_number.value)
+            imageResult = Math.abs(result)
+            setImageResultList(imageResult)
+        } else {
+            result = mainViewModel.minus(first_number.value!!, second_number.value!!)
+            imageResult = Math.abs(result)
+            setImageResultList(imageResult)
+        }
+        binding.tvFinalResult.setText("$result")
     }
 
     companion object {
