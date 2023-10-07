@@ -14,5 +14,7 @@
 
     <string name="positive">Positif</string>
     <string name="negative">Negatif</string>
+    <string name="add">+</string>
+    <string name="minus">-</string>
 
 </resources>

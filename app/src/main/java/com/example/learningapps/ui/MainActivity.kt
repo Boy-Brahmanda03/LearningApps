@@ -29,27 +29,133 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         setImageNumber()
         setSecondImageNumber()
 
-        binding.btnNumber1.setOnClickListener(this)
-        binding.btnSecondNumber1.setOnClickListener(this)
-        binding.btnSecondNumber2.setOnClickListener(this)
+        binding.ivNumber1.setOnClickListener(this)
+        binding.ivNumber2.setOnClickListener(this)
+        binding.ivNumber3.setOnClickListener(this)
+        binding.ivNumber4.setOnClickListener(this)
+        binding.ivNumber5.setOnClickListener(this)
+        binding.ivNumber6.setOnClickListener(this)
+        binding.ivNumber7.setOnClickListener(this)
+        binding.ivNumber8.setOnClickListener(this)
+        binding.ivNumber9.setOnClickListener(this)
+
+        binding.ivSecondNumber1.setOnClickListener(this)
+        binding.ivSecondNumber2.setOnClickListener(this)
+        binding.ivSecondNumber3.setOnClickListener(this)
+        binding.ivSecondNumber4.setOnClickListener(this)
+        binding.ivSecondNumber5.setOnClickListener(this)
+        binding.ivSecondNumber6.setOnClickListener(this)
+        binding.ivSecondNumber7.setOnClickListener(this)
+        binding.ivSecondNumber8.setOnClickListener(this)
+        binding.ivSecondNumber9.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
         when (v.id) {
-            R.id.btn_number_1 -> {
+            R.id.iv_number_1 -> {
                 first_number.value = 1
                 showAlertDialog(FIRST_NUMBER)
                 mainViewModel.getNumber(first_number, FIRST_NUMBER)
             }
 
-            R.id.btn_second_number_1 -> {
+            R.id.iv_number_2 -> {
+                first_number.value = 2
+                showAlertDialog(FIRST_NUMBER)
+                mainViewModel.getNumber(first_number, FIRST_NUMBER)
+            }
+
+            R.id.iv_number_3 -> {
+                first_number.value = 3
+                showAlertDialog(FIRST_NUMBER)
+                mainViewModel.getNumber(first_number, FIRST_NUMBER)
+            }
+
+            R.id.iv_number_4 -> {
+                first_number.value = 4
+                showAlertDialog(FIRST_NUMBER)
+                mainViewModel.getNumber(first_number, FIRST_NUMBER)
+            }
+
+            R.id.iv_number_5 -> {
+                first_number.value = 5
+                showAlertDialog(FIRST_NUMBER)
+                mainViewModel.getNumber(first_number, FIRST_NUMBER)
+            }
+
+            R.id.iv_number_6 -> {
+                first_number.value = 7
+                showAlertDialog(FIRST_NUMBER)
+                mainViewModel.getNumber(first_number, FIRST_NUMBER)
+            }
+
+            R.id.iv_number_7 -> {
+                first_number.value = 7
+                showAlertDialog(FIRST_NUMBER)
+                mainViewModel.getNumber(first_number, FIRST_NUMBER)
+            }
+
+            R.id.iv_number_8 -> {
+                first_number.value = 8
+                showAlertDialog(FIRST_NUMBER)
+                mainViewModel.getNumber(first_number, FIRST_NUMBER)
+            }
+
+            R.id.iv_number_9 -> {
+                first_number.value = 9
+                showAlertDialog(FIRST_NUMBER)
+                mainViewModel.getNumber(first_number, FIRST_NUMBER)
+            }
+
+            R.id.iv_second_number_1 -> {
                 second_number.value = 1
                 showAlertDialog(SECOND_NUMBER)
                 mainViewModel.getNumber(second_number, SECOND_NUMBER)
             }
 
-            R.id.btn_second_number_2 -> {
+            R.id.iv_second_number_2 -> {
                 second_number.value = 2
+                showAlertDialog(SECOND_NUMBER)
+                mainViewModel.getNumber(second_number, SECOND_NUMBER)
+            }
+
+            R.id.iv_second_number_3 -> {
+                second_number.value = 3
+                showAlertDialog(SECOND_NUMBER)
+                mainViewModel.getNumber(second_number, SECOND_NUMBER)
+            }
+
+            R.id.iv_second_number_4 -> {
+                second_number.value = 4
+                showAlertDialog(SECOND_NUMBER)
+                mainViewModel.getNumber(second_number, SECOND_NUMBER)
+            }
+
+            R.id.iv_second_number_5 -> {
+                second_number.value = 5
+                showAlertDialog(SECOND_NUMBER)
+                mainViewModel.getNumber(second_number, SECOND_NUMBER)
+            }
+
+            R.id.iv_second_number_6 -> {
+                second_number.value = 7
+                showAlertDialog(SECOND_NUMBER)
+                mainViewModel.getNumber(second_number, SECOND_NUMBER)
+            }
+
+            R.id.iv_second_number_7 -> {
+                second_number.value = 7
+                showAlertDialog(SECOND_NUMBER)
+                mainViewModel.getNumber(second_number, SECOND_NUMBER)
+            }
+
+            R.id.iv__second_number_8 -> {
+                second_number.value = 8
+                showAlertDialog(SECOND_NUMBER)
+                mainViewModel.getNumber(second_number, SECOND_NUMBER)
+            }
+
+            R.id.iv_second_number_9 -> {
+                second_number.value = 9
                 showAlertDialog(SECOND_NUMBER)
                 mainViewModel.getNumber(second_number, SECOND_NUMBER)
             }
