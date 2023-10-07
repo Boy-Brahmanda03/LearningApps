@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">LearningApps</string>
+    <string name="second_image_number">second_image_number</string>
+    <string name="first_image_number">first_image_number</string>
+    <string name="number_1">Number 1</string>
+    <string name="positive">Positif</string>
+    <string name="negative">Negatif</string>
+
+</resources>
