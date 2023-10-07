@@ -1,6 +1,7 @@
 package com.example.learningapps.ui
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
@@ -12,6 +13,13 @@ import com.example.learningapps.data.DataNumber
 import com.example.learningapps.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
+
+    private val imageList = mapOf<Int, Int>(
+        1 to R.drawable.baseline_add_24,
+        2 to R.drawable.baseline_remove_24,
+        3 to R.drawable.ic_launcher_background,
+        4 to R.drawable.ic_launcher_foreground
+    )
 
 
     private lateinit var binding: ActivityMainBinding
@@ -48,6 +56,12 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         binding.ivSecondNumber7.setOnClickListener(this)
         binding.ivSecondNumber8.setOnClickListener(this)
         binding.ivSecondNumber9.setOnClickListener(this)
+
+        binding.ivAdd.setOnClickListener {
+            val result = mainViewModel.add(first_number.value, second_number.value)
+            setImageResultList(result)
+            Toast.makeText(this, "$result", Toast.LENGTH_SHORT).show()
+        }
     }
 
     override fun onClick(v: View) {
@@ -159,11 +173,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 showAlertDialog(SECOND_NUMBER)
                 mainViewModel.getNumber(second_number, SECOND_NUMBER)
             }
-
-//            R.id.btn_add -> {
-//                val result = mainViewModel.AddNumber(first_number.value, second_number.value)
-//                Toast.makeText(this, "$result", Toast.LENGTH_SHORT).show()
-//            }
         }
     }
 
@@ -229,6 +238,27 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             } else {
                 binding.ivSecondNumber.setImageDrawable(AppCompatResources.getDrawable(binding.ivSecondNumber.context,R.drawable.baseline_remove_24))
             }
+        }
+    }
+
+    fun setImageResultList(result: Int){
+        Log.d("SETIMAGE", "result: $result")
+        Log.d("SETIMAGE", "result: ${imageList.getValue(result)}")
+        Log.d("SETIMAGE", "result: ${imageList.get(result)}")
+        val key = imageList.keys
+        if (result > 0){
+            for (k in key){
+                if (result == k ){
+                    binding.ivResult.setImageDrawable(
+                        AppCompatResources.getDrawable(
+                            binding.ivResult.context,
+                            imageList.getValue(result)
+                        )
+                    )
+                }
+            }
+        } else {
+            Log.d("TAG", "setImageResultList: gada apa bang")
         }
     }
 

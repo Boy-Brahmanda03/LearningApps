@@ -42,4 +42,11 @@ class MainViewModel: ViewModel() {
             _secondNumber.value = DataNumber(dataNumber.value, dataNumber.type)
         }
     }
+
+    fun add(a: Int?, b: Int?): Int{
+        if(a != null && b != null){
+            return a + b
+        }
+        return 0
+    }
 }
