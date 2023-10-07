@@ -12,4 +12,8 @@ class MainViewModel: ViewModel() {
     fun getNumber(dataNumber: DataNumber){
         _numberData.value = dataNumber
     }
+
+    fun setNumber(dataNumber: DataNumber){
+
+    }
 }

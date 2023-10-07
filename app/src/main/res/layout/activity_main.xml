@@ -40,14 +40,30 @@
         app:layout_constraintTop_toBottomOf="@+id/iv_first_number" />
 
     <Button
-        android:id="@+id/btn_number_2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:id="@+id/btn_second_number_1"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="54dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/black"
         android:text="@string/number_1"
         app:layout_constraintEnd_toEndOf="@+id/iv_second_number"
+        app:layout_constraintHorizontal_bias="0.256"
         app:layout_constraintStart_toStartOf="@+id/iv_second_number"
         app:layout_constraintTop_toBottomOf="@+id/iv_second_number" />
+
+    <Button
+        android:id="@+id/btn_second_number_2"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="54dp"
+        android:layout_height="47dp"
+        android:background="@color/black"
+        android:text="@string/number_2"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_second_number_1"
+        app:layout_constraintEnd_toEndOf="@+id/iv_second_number"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/btn_second_number_1"
+        app:layout_constraintTop_toTopOf="@+id/btn_second_number_1" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -28,7 +28,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         setImageNumber()
 
         binding.btnNumber1.setOnClickListener(this)
-        binding.btnNumber2.setOnClickListener(this)
+        binding.btnSecondNumber1.setOnClickListener(this)
+        binding.btnSecondNumber2.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
@@ -36,6 +37,19 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             R.id.btn_number_1 -> {
                 number.value = 1
                 showAlertDialog()
+                mainViewModel.getNumber(number)
+            }
+
+
+            R.id.btn_second_number_1 -> {
+                number.value = 1
+                showAlertDialogSecond()
+                mainViewModel.getNumber(number)
+            }
+
+            R.id.btn_second_number_2 -> {
+                number.value = 2
+                showAlertDialogSecond()
                 mainViewModel.getNumber(number)
             }
         }
@@ -65,12 +79,46 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
+    private fun showAlertDialogSecond() {
+        val dialogTitle = "Pilih jenis bilangan"
+        val dialogMessage = "Pilihlah jenis bilangan"
+        val alertDialogBuilder = AlertDialog.Builder(this@MainActivity)
+        with(alertDialogBuilder) {
+            setTitle(dialogTitle)
+            setMessage(dialogMessage)
+            setCancelable(false)
+            setPositiveButton(getString(R.string.positive)) { _, _ ->
+                number.type = true
+                Toast.makeText(this@MainActivity, "${number.value}", Toast.LENGTH_SHORT).show()
+                setImageNumberSecond()
+            }
+            setNegativeButton(getString(R.string.negative)) { _, _ ->
+                number.type = false
+                number.value = -Math.abs(number.value!!)
+                Toast.makeText(this@MainActivity, "${number.value}", Toast.LENGTH_SHORT).show()
+                setImageNumberSecond()
+            }
+            val alertDialog = alertDialogBuilder.create()
+            alertDialog.show()
+        }
+    }
+
     private fun setImageNumber(){
         mainViewModel.numberData.observe(this){
             if (it.type == true){
                 binding.ivFirstNumber.setImageDrawable(getDrawable(R.drawable.baseline_add_24))
             } else {
                 binding.ivFirstNumber.setImageDrawable(getDrawable(R.drawable.baseline_remove_24))
+            }
+        }
+    }
+
+    private fun setImageNumberSecond(){
+        mainViewModel.numberData.observe(this){
+            if (it.type == true){
+                binding.ivSecondNumber.setImageDrawable(getDrawable(R.drawable.baseline_add_24))
+            } else {
+                binding.ivSecondNumber.setImageDrawable(getDrawable(R.drawable.baseline_remove_24))
             }
         }
     }
