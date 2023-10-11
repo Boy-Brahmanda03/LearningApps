@@ -10,11 +10,11 @@ import androidx.appcompat.content.res.AppCompatResources
 import com.example.learningapps.R
 import com.example.learningapps.data.DataNumber
 import com.example.learningapps.databinding.ActivityMainBinding
-import kotlin.math.abs
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     private val imagePositiveMap = mapOf(
+        0 to R.drawable.baseline_remove_24,
         1 to R.drawable.tanda_01,
         2 to R.drawable.tanda_02,
         3 to R.drawable.tanda_03,
@@ -27,6 +27,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     )
 
     private val imageNegativeMap = mapOf(
+        0 to R.drawable.baseline_remove_24,
         1 to R.drawable.tanda_10,
         2 to R.drawable.tanda_11,
         3 to R.drawable.tanda_12,
@@ -40,6 +41,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     )
 
     private val imageNetralMap = mapOf(
+        0 to R.drawable.baseline_remove_24,
         1 to R.drawable.tanda_19,
         2 to R.drawable.tanda_20,
         3 to R.drawable.tanda_21,
@@ -63,9 +65,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        setImageNumber()
-        setSecondImageNumber()
 
         binding.ivNumber1.setOnClickListener(this)
         binding.ivNumber2.setOnClickListener(this)
@@ -95,11 +94,53 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             isAdd = true
         }
 
+        setImageNumber()
+        setSecondImageNumber()
+
 
         binding.btnCount.setOnClickListener {
             setCals(isAdd)
             finalResult(isAdd)
             restCals(first_number.value!!, second_number.value!!)
+        }
+
+
+
+        binding.btnReset.setOnClickListener{
+
+//            binding.ivFirstNumber.setImageResource(0)
+//            binding.ivFirstNumber.setImageResource(0)
+//            binding.ivFirstNumber.setImageDrawable(
+//                AppCompatResources.getDrawable(
+//                    binding.ivResult.context,
+//                    R.drawable.ic_launcher_background
+//                )
+//
+//            )
+//
+//            binding.ivSecondNumber.setImageDrawable(
+//                AppCompatResources.getDrawable(
+//                    binding.ivResult.context,
+//                    R.drawable.ic_launcher_background
+//                )
+//            )
+//
+//            binding.ivRest.setImageDrawable(
+//                AppCompatResources.getDrawable(
+//                    binding.ivResult.context,
+//                    R.drawable.ic_launcher_background
+//                )
+//            )
+//
+//            binding.ivResult.setImageDrawable(
+//                AppCompatResources.getDrawable(
+//                    binding.ivResult.context,
+//                    R.drawable.ic_launcher_background
+//                )
+//            )
+            finish()
+            startActivity(intent)
+
         }
     }
 
@@ -301,7 +342,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                         )
                     }
                 }
-            } else {
+            } else if (it.type == false){
                 for (k in negKey) {
                     if (k == it.value) {
                         binding.ivSecondNumber.setImageDrawable(
@@ -344,6 +385,14 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                     )
                 }
             }
+        } else {
+            binding.ivResult.setImageDrawable(
+                AppCompatResources.getDrawable(
+                    binding.ivResult.context,
+                    R.drawable.ic_launcher_background
+                )
+            )
+
         }
     }
 
@@ -382,6 +431,16 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                         )
                     }
                 }
+            } else {
+                for (k in key){
+                    binding.ivRest.setImageDrawable(
+                        AppCompatResources.getDrawable(
+                            binding.ivResult.context,
+                            imageNetralMap.getValue(firstRest)
+                        )
+                    )
+                }
+
             }
 
         }
