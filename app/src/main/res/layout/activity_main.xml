@@ -375,5 +375,18 @@
         app:layout_constraintStart_toStartOf="@+id/tv_cals"
         app:layout_constraintTop_toBottomOf="@+id/tv_cals" />
 
+    <Button
+        android:id="@+id/btn_reset"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_width="112dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/reset"
+        android:textAllCaps="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_final_result" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

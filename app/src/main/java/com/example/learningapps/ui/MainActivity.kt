@@ -14,6 +14,7 @@ import com.example.learningapps.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     private val imagePositiveMap = mapOf<Int, Int>(
+        0 to R.drawable.baseline_remove_24,
         1 to R.drawable.tanda_01,
         2 to R.drawable.tanda_02,
         3 to R.drawable.tanda_03,
@@ -26,6 +27,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     )
 
     private val imageNegativeMap = mapOf<Int, Int>(
+        0 to R.drawable.baseline_remove_24,
         1 to R.drawable.tanda_10,
         2 to R.drawable.tanda_11,
         3 to R.drawable.tanda_12,
@@ -39,6 +41,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     )
 
     private val imageNetralMap = mapOf<Int, Int>(
+        0 to R.drawable.baseline_remove_24,
         1 to R.drawable.tanda_19,
         2 to R.drawable.tanda_20,
         3 to R.drawable.tanda_21,
@@ -62,9 +65,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        setImageNumber()
-        setSecondImageNumber()
 
         binding.ivNumber1.setOnClickListener(this)
         binding.ivNumber2.setOnClickListener(this)
@@ -94,15 +94,59 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             isAdd = true
         }
 
+        setImageNumber()
+        setSecondImageNumber()
+
 
         binding.btnCount.setOnClickListener {
             setCals(isAdd)
             finalResult(isAdd)
             restCals(first_number.value!!, second_number.value!!)
         }
+
+
+
+        binding.btnReset.setOnClickListener{
+
+//            binding.ivFirstNumber.setImageResource(0)
+//            binding.ivFirstNumber.setImageResource(0)
+//            binding.ivFirstNumber.setImageDrawable(
+//                AppCompatResources.getDrawable(
+//                    binding.ivResult.context,
+//                    R.drawable.ic_launcher_background
+//                )
+//
+//            )
+//
+//            binding.ivSecondNumber.setImageDrawable(
+//                AppCompatResources.getDrawable(
+//                    binding.ivResult.context,
+//                    R.drawable.ic_launcher_background
+//                )
+//            )
+//
+//            binding.ivRest.setImageDrawable(
+//                AppCompatResources.getDrawable(
+//                    binding.ivResult.context,
+//                    R.drawable.ic_launcher_background
+//                )
+//            )
+//
+//            binding.ivResult.setImageDrawable(
+//                AppCompatResources.getDrawable(
+//                    binding.ivResult.context,
+//                    R.drawable.ic_launcher_background
+//                )
+//            )
+            finish()
+            startActivity(intent)
+
+        }
     }
 
     override fun onClick(v: View) {
+        first_number.type = false
+        second_number.type = false
         when (v.id) {
             R.id.iv_number_1 -> {
                 first_number.value = 1
@@ -251,6 +295,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             val alertDialog = alertDialogBuilder.create()
             alertDialog.show()
         }
+
+
     }
 
     private fun setImageNumber() {
@@ -298,7 +344,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                         )
                     }
                 }
-            } else {
+            } else if (it.type == false){
                 for (k in negKey) {
                     if (k == it.value) {
                         binding.ivSecondNumber.setImageDrawable(
@@ -314,7 +360,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun setImageResultList(result: Int) {
-        var imageResult: Int
+        val imageResult: Int
         val key = imagePositiveMap.keys
         val keySecond = imageNegativeMap.keys
         if (result > 0) {
@@ -341,6 +387,14 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                     )
                 }
             }
+        } else {
+            binding.ivResult.setImageDrawable(
+                AppCompatResources.getDrawable(
+                    binding.ivResult.context,
+                    R.drawable.ic_launcher_background
+                )
+            )
+
         }
     }
 
@@ -379,6 +433,16 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                         )
                     }
                 }
+            } else {
+                for (k in key){
+                    binding.ivRest.setImageDrawable(
+                        AppCompatResources.getDrawable(
+                            binding.ivResult.context,
+                            imageNetralMap.getValue(firstRest)
+                        )
+                    )
+                }
+
             }
 
         }
@@ -395,7 +459,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun finalResult(isAdd: Boolean) {
-        var result: Int
+        val result: Int
         if (isAdd) {
             result = mainViewModel.add(first_number.value, second_number.value)
             setImageResultList(result)
