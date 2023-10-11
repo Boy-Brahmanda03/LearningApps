@@ -10,6 +10,7 @@ import androidx.appcompat.content.res.AppCompatResources
 import com.example.learningapps.R
 import com.example.learningapps.data.DataNumber
 import com.example.learningapps.databinding.ActivityMainBinding
+import java.lang.Math.abs
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 
@@ -99,45 +100,21 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
 
         binding.btnCount.setOnClickListener {
-            setCals(isAdd)
-            finalResult(isAdd)
-            restCals(first_number.value!!, second_number.value!!)
+            if (first_number.value == null) {
+                Toast.makeText(this, "input Manik Pertama!", Toast.LENGTH_SHORT).show()
+            } else if (second_number.value == null){
+                Toast.makeText(this, "input Manik Kedua!", Toast.LENGTH_SHORT).show()
+            } else {
+                setCals(isAdd)
+                finalResult(isAdd)
+                restCals(first_number.value!!, second_number.value!!)
+            }
+
         }
 
 
 
-        binding.btnReset.setOnClickListener{
-
-//            binding.ivFirstNumber.setImageResource(0)
-//            binding.ivFirstNumber.setImageResource(0)
-//            binding.ivFirstNumber.setImageDrawable(
-//                AppCompatResources.getDrawable(
-//                    binding.ivResult.context,
-//                    R.drawable.ic_launcher_background
-//                )
-//
-//            )
-//
-//            binding.ivSecondNumber.setImageDrawable(
-//                AppCompatResources.getDrawable(
-//                    binding.ivResult.context,
-//                    R.drawable.ic_launcher_background
-//                )
-//            )
-//
-//            binding.ivRest.setImageDrawable(
-//                AppCompatResources.getDrawable(
-//                    binding.ivResult.context,
-//                    R.drawable.ic_launcher_background
-//                )
-//            )
-//
-//            binding.ivResult.setImageDrawable(
-//                AppCompatResources.getDrawable(
-//                    binding.ivResult.context,
-//                    R.drawable.ic_launcher_background
-//                )
-//            )
+        binding.btnReset.setOnClickListener {
             finish()
             startActivity(intent)
 
@@ -342,7 +319,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                         )
                     }
                 }
-            } else if (it.type == false){
+            } else if (it.type == false) {
                 for (k in negKey) {
                     if (k == it.value) {
                         binding.ivSecondNumber.setImageDrawable(
@@ -398,14 +375,14 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
 
     private fun restCals(firstNumber: Int, secondNumber: Int) {
-        if (firstNumber > 0 && secondNumber > 0){
+        if (firstNumber > 0 && secondNumber > 0) {
             binding.ivRest.setImageDrawable(
                 AppCompatResources.getDrawable(
                     binding.ivResult.context,
                     R.drawable.ic_launcher_background
                 )
             )
-        } else{
+        } else {
             val firstRest = abs(firstNumber)
             val secondRest = abs(secondNumber)
             val key = imageNetralMap.keys
@@ -420,7 +397,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                         )
                     }
                 }
-            } else if(secondRest < firstRest) {
+            } else if (secondRest < firstRest) {
                 for (k in key) {
                     if (secondRest == k) {
                         binding.ivRest.setImageDrawable(
@@ -442,7 +419,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 }
 
             }
-
         }
 
     }
