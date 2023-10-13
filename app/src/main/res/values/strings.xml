@@ -7,8 +7,23 @@
     <string name="number_3">3</string>
     <string name="number_4">4</string>
     <string name="number_5">5</string>
+    <string name="number_6">6</string>
+    <string name="number_7">7</string>
+    <string name="number_8">8</string>
+    <string name="number_9">9</string>
+
     <string name="positive">Positif</string>
     <string name="negative">Negatif</string>
+    <string name="add">+</string>
+    <string name="minus">-</string>
+    <string name="first_manik">Manik Pertama</string>
+    <string name="rest">Sisa Manik-Manik</string>
+    <string name="result">Hasil</string>
+    <string name="second_manik">Manik Kedua</string>
+    <string name="count">Hitung</string>
+    <string name="final_result">xy</string>
+    <string name="cals">x +/- y =</string>
+    <string name="result_of">Hasil dari</string>
     <string name="silahkan_masukan_jenis_angka">Silahkan masukan jenis angka</string>
     <string name="numberMinus">+</string>
     <string name="numberPlus">-</string>
