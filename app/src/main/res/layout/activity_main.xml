@@ -14,12 +14,15 @@
         android:id="@+id/tv_first_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="3dp"
         android:text="@string/first_manik"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/iv_first_number"
         app:layout_constraintEnd_toEndOf="@+id/iv_first_number"
-        app:layout_constraintStart_toStartOf="@+id/iv_first_number" />
+        app:layout_constraintStart_toStartOf="@+id/iv_first_number"
+        android:fontFamily="@font/eraserdust"
+        android:textColor="@color/white"/>
 
     <ImageView
         android:id="@+id/iv_first_number"
@@ -36,17 +39,23 @@
         android:id="@+id/tv_second_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="56dp"
         android:text="@string/second_manik"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/iv_second_number"
         app:layout_constraintEnd_toEndOf="@+id/iv_second_number"
-        app:layout_constraintStart_toStartOf="@+id/iv_second_number" />
+        app:layout_constraintHorizontal_bias="0.979"
+        app:layout_constraintStart_toStartOf="@+id/iv_second_number"
+        android:fontFamily="@font/eraserdust"
+        android:textColor="@color/white"
+        />
 
     <ImageView
         android:id="@+id/iv_second_number"
         android:layout_width="190dp"
         android:layout_height="110dp"
+        android:layout_marginTop="20dp"
         android:contentDescription="@string/second_image_number"
         android:src="@drawable/ic_launcher_background"
         app:layout_constraintBottom_toBottomOf="@+id/iv_first_number"
@@ -307,12 +316,15 @@
         android:id="@+id/tv_rest"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="3dp"
         android:text="@string/rest"
         android:textSize="12sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/iv_rest"
         app:layout_constraintEnd_toEndOf="@+id/iv_rest"
-        app:layout_constraintStart_toStartOf="@+id/iv_rest" />
+        app:layout_constraintStart_toStartOf="@+id/iv_rest"
+        android:fontFamily="@font/eraserdust"
+        android:textColor="@color/white"/>
 
     <ImageView
         android:id="@+id/iv_rest"
@@ -334,15 +346,17 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/iv_result"
         app:layout_constraintEnd_toEndOf="@+id/iv_result"
-        app:layout_constraintStart_toStartOf="@+id/iv_result" />
+        app:layout_constraintStart_toStartOf="@+id/iv_result"
+        android:fontFamily="@font/eraserdust"
+        android:textColor="@color/white"/>
 
     <ImageView
         android:id="@+id/iv_result"
         android:layout_width="190dp"
         android:layout_height="110dp"
+        android:layout_marginTop="380dp"
         android:contentDescription="@string/second_image_number"
         android:src="@drawable/ic_launcher_background"
-        app:layout_constraintBottom_toBottomOf="@+id/iv_rest"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/iv_rest"
         app:layout_constraintTop_toBottomOf="@+id/tv_rest" />
@@ -356,7 +370,10 @@
         app:layout_constraintEnd_toEndOf="@+id/iv_result"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="@+id/iv_rest"
-        app:layout_constraintTop_toBottomOf="@+id/iv_result" />
+        app:layout_constraintTop_toBottomOf="@+id/iv_result"
+        android:fontFamily="@font/eraserdust"
+        android:textColor="@color/white"
+        android:textSize="14sp"/>
 
     <TextView
         android:id="@+id/tv_cals"
@@ -366,7 +383,11 @@
         android:text="@string/cals"
         app:layout_constraintEnd_toEndOf="@+id/tv_result_of"
         app:layout_constraintStart_toStartOf="@+id/tv_result_of"
-        app:layout_constraintTop_toBottomOf="@+id/tv_result_of" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_result_of"
+        android:fontFamily="@font/eraserdust"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        />
 
     <TextView
         android:id="@+id/tv_final_result"
@@ -377,7 +398,11 @@
         app:layout_constraintEnd_toEndOf="@+id/tv_cals"
         app:layout_constraintHorizontal_bias="0.485"
         app:layout_constraintStart_toStartOf="@+id/tv_cals"
-        app:layout_constraintTop_toBottomOf="@+id/tv_cals" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_cals"
+        android:fontFamily="@font/eraserdust"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        />
 
     <Button
         android:id="@+id/btn_reset"
