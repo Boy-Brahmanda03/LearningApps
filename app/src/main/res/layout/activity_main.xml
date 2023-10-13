@@ -14,8 +14,9 @@
         android:id="@+id/tv_first_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="3dp"
+        android:fontFamily="@font/eraserdust"
         android:text="@string/first_manik"
+        android:textColor="@color/white"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/iv_first_number"
@@ -26,7 +27,7 @@
         android:id="@+id/iv_first_number"
         android:layout_width="190dp"
         android:layout_height="110dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="60dp"
         android:contentDescription="@string/first_image_number"
         android:src="@drawable/ic_launcher_background"
         app:layout_constraintEnd_toStartOf="@+id/iv_second_number"
@@ -37,13 +38,17 @@
         android:id="@+id/tv_second_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/eraserdust"
         android:text="@string/second_manik"
+        android:textColor="@color/white"
         android:textSize="18sp"
         android:textStyle="bold"
-        android:layout_marginBottom="3dp"
         app:layout_constraintBottom_toTopOf="@+id/iv_second_number"
         app:layout_constraintEnd_toEndOf="@+id/iv_second_number"
-        app:layout_constraintStart_toStartOf="@+id/iv_second_number" />
+        app:layout_constraintHorizontal_bias="0.453"
+        app:layout_constraintStart_toStartOf="@+id/iv_second_number"
+        app:layout_constraintTop_toTopOf="@+id/tv_first_number"
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/iv_second_number"
@@ -52,9 +57,11 @@
         android:layout_marginTop="20dp"
         android:contentDescription="@string/second_image_number"
         android:src="@drawable/ic_launcher_background"
-        app:layout_constraintStart_toEndOf="@+id/iv_first_number"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_first_number"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintStart_toEndOf="@+id/iv_first_number"
+        app:layout_constraintTop_toBottomOf="@+id/tv_first_number"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/iv_number_1"
@@ -315,18 +322,20 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/iv_rest"
         app:layout_constraintEnd_toEndOf="@+id/iv_rest"
-        app:layout_constraintStart_toStartOf="@+id/iv_rest" />
+        app:layout_constraintStart_toStartOf="@+id/iv_rest"
+        android:fontFamily="@font/eraserdust"
+        android:textColor="@color/white"/>
 
     <ImageView
         android:id="@+id/iv_rest"
         android:layout_width="190dp"
         android:layout_height="110dp"
-        android:layout_marginTop="380dp"
         android:contentDescription="@string/first_image_number"
         android:src="@drawable/ic_launcher_background"
         app:layout_constraintEnd_toStartOf="@+id/iv_result"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@+id/btn_count" />
 
     <TextView
         android:id="@+id/tv_result"
@@ -337,29 +346,33 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/iv_result"
         app:layout_constraintEnd_toEndOf="@+id/iv_result"
-        app:layout_constraintStart_toStartOf="@+id/iv_result" />
+        app:layout_constraintStart_toStartOf="@+id/iv_result"
+        android:fontFamily="@font/eraserdust"
+        android:textColor="@color/white"/>
 
     <ImageView
         android:id="@+id/iv_result"
         android:layout_width="190dp"
         android:layout_height="110dp"
-        android:layout_marginTop="380dp"
         android:contentDescription="@string/second_image_number"
         android:src="@drawable/ic_launcher_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/iv_rest"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_rest" />
 
     <TextView
         android:id="@+id/tv_result_of"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="32dp"
         android:text="@string/result_of"
         app:layout_constraintEnd_toEndOf="@+id/iv_result"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="@+id/iv_rest"
-        app:layout_constraintTop_toBottomOf="@+id/iv_result" />
+        app:layout_constraintTop_toBottomOf="@+id/iv_result"
+        android:fontFamily="@font/eraserdust"
+        android:textColor="@color/white"
+        android:textSize="14sp"/>
 
     <TextView
         android:id="@+id/tv_cals"
@@ -369,7 +382,11 @@
         android:text="@string/cals"
         app:layout_constraintEnd_toEndOf="@+id/tv_result_of"
         app:layout_constraintStart_toStartOf="@+id/tv_result_of"
-        app:layout_constraintTop_toBottomOf="@+id/tv_result_of" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_result_of"
+        android:fontFamily="@font/eraserdust"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        />
 
     <TextView
         android:id="@+id/tv_final_result"
@@ -380,7 +397,11 @@
         app:layout_constraintEnd_toEndOf="@+id/tv_cals"
         app:layout_constraintHorizontal_bias="0.485"
         app:layout_constraintStart_toStartOf="@+id/tv_cals"
-        app:layout_constraintTop_toBottomOf="@+id/tv_cals" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_cals"
+        android:fontFamily="@font/eraserdust"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        />
 
     <Button
         android:id="@+id/btn_reset"
