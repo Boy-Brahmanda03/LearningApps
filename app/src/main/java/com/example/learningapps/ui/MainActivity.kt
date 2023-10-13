@@ -1,7 +1,10 @@
 package com.example.learningapps.ui
 
+import android.os.Build
 import android.os.Bundle
 import android.view.View
+import android.view.WindowInsets
+import android.view.WindowManager
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
@@ -10,7 +13,7 @@ import androidx.appcompat.content.res.AppCompatResources
 import com.example.learningapps.R
 import com.example.learningapps.data.DataNumber
 import com.example.learningapps.databinding.ActivityMainBinding
-import java.lang.Math.abs
+import kotlin.math.abs
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 
@@ -67,6 +70,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        setupView()
+
         binding.ivNumber1.setOnClickListener(this)
         binding.ivNumber2.setOnClickListener(this)
         binding.ivNumber3.setOnClickListener(this)
@@ -117,7 +122,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         binding.btnReset.setOnClickListener {
             finish()
             startActivity(intent)
-
         }
     }
 
@@ -382,7 +386,16 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                     R.drawable.ic_launcher_background
                 )
             )
-        } else {
+        }
+        else if (firstNumber < 0 && secondNumber <0){
+            binding.ivRest.setImageDrawable(
+                androidx.appcompat.content.res.AppCompatResources.getDrawable(
+                    binding.ivResult.context,
+                    com.example.learningapps.R.drawable.ic_launcher_background
+                )
+            )
+        }
+        else {
             val firstRest = abs(firstNumber)
             val secondRest = abs(secondNumber)
             val key = imageNetralMap.keys
@@ -442,6 +455,19 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             setImageResultList(result)
         }
         binding.tvFinalResult.text = "$result"
+    }
+
+    private fun setupView() {
+        @Suppress("DEPRECATION")
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.R){
+            window.insetsController?.hide(WindowInsets.Type.statusBars())
+        } else {
+            window.setFlags(
+                WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN
+            )
+        }
+        supportActionBar?.hide()
     }
 
     companion object {
