@@ -5,7 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.MainActivity"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="@drawable/main_background"
+    >
 
 
     <TextView
