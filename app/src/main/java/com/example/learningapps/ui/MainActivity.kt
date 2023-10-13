@@ -27,7 +27,17 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         6 to R.drawable.tanda_06,
         7 to R.drawable.tanda_07,
         8 to R.drawable.tanda_08,
-        9 to R.drawable.tanda_09
+        9 to R.drawable.tanda_09,
+        10 to R.drawable.tanda_37,
+        11 to R.drawable.tanda_38,
+        12 to R.drawable.tanda_39,
+        13 to R.drawable.tanda_40,
+        14 to R.drawable.tanda_41,
+        15 to R.drawable.tanda_42,
+        16 to R.drawable.tanda_43,
+        17 to R.drawable.tanda_44,
+        18 to R.drawable.tanda_45
+
     )
 
     private val imageNegativeMap = mapOf(
@@ -40,7 +50,17 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         6 to R.drawable.tanda_15,
         7 to R.drawable.tanda_16,
         8 to R.drawable.tanda_17,
-        9 to R.drawable.tanda_18
+        9 to R.drawable.tanda_18,
+        10 to R.drawable.tanda_28,
+        11 to R.drawable.tanda_29,
+        12 to R.drawable.tanda_30,
+        13 to R.drawable.tanda_31,
+        14 to R.drawable.tanda_32,
+        15 to R.drawable.tanda_33,
+        16 to R.drawable.tanda_34,
+        17 to R.drawable.tanda_35,
+        18 to R.drawable.tanda_36,
+
 
     )
 
@@ -54,7 +74,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         6 to R.drawable.tanda_24,
         7 to R.drawable.tanda_25,
         8 to R.drawable.tanda_26,
-        9 to R.drawable.tanda_27
+        9 to R.drawable.tanda_27,
     )
 
     private lateinit var binding: ActivityMainBinding
@@ -387,11 +407,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 )
             )
         }
-        else if (firstNumber < 0 && secondNumber <0){
+        else if (firstNumber < 0 && secondNumber < 0 ){
             binding.ivRest.setImageDrawable(
-                androidx.appcompat.content.res.AppCompatResources.getDrawable(
+               AppCompatResources.getDrawable(
                     binding.ivResult.context,
-                    com.example.learningapps.R.drawable.ic_launcher_background
+                   R.drawable.ic_launcher_background
                 )
             )
         }

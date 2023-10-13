@@ -29,5 +29,6 @@
     <string name="numberPlus">-</string>
     <string name="reset">reset</string>
     <string name="masukkan_angka">Masukkan angka</string>
+    <string name="designed_by_digitaltrinity">© Designed by DigitalTrinity</string>
 
 </resources>

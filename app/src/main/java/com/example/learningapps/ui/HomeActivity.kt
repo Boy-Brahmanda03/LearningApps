@@ -8,7 +8,7 @@ import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import com.example.learningapps.databinding.ActivitySplashScreenBinding
 
-class SplashScreen : AppCompatActivity() {
+class HomeActivity : AppCompatActivity() {
 
 private lateinit var binding: ActivitySplashScreenBinding
     override fun onCreate(savedInstanceState: Bundle?) {
