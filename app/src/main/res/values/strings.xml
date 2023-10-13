@@ -28,5 +28,6 @@
     <string name="numberMinus">+</string>
     <string name="numberPlus">-</string>
     <string name="reset">reset</string>
+    <string name="masukkan_angka">Masukkan angka</string>
 
 </resources>
