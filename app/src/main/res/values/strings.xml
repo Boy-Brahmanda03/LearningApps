@@ -27,5 +27,6 @@
     <string name="silahkan_masukan_jenis_angka">Silahkan masukan jenis angka</string>
     <string name="numberMinus">+</string>
     <string name="numberPlus">-</string>
+    <string name="masukkan_angka">Masukkan angka</string>
 
 </resources>
