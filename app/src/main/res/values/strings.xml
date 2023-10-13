@@ -24,9 +24,9 @@
     <string name="final_result">xy</string>
     <string name="cals">x +/- y =</string>
     <string name="result_of">Hasil dari</string>
-    <string name="silahkan_masukan_jenis_angka">Silahkan masukan jenis angka</string>
-    <string name="numberMinus">+</string>
-    <string name="numberPlus">-</string>
+    <string name="silahkan_masukan_jenis_angka">Silahkan pilih jenis bilangan</string>
+    <string name="numberPlus">+</string>
+    <string name="numberMinus">-</string>
     <string name="reset">reset</string>
     <string name="masukkan_angka">Masukkan angka</string>
     <string name="designed_by_digitaltrinity">© Designed by DigitalTrinity</string>

@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import android.view.WindowInsets
 import android.view.WindowManager
+import android.widget.Button
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
@@ -260,42 +261,41 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun showAlertDialog(type: Int) {
-        val dialogTitle = "Pilih jenis bilangan"
-        val dialogMessage = "Pilihlah jenis bilangan"
-        val alertDialogBuilder = AlertDialog.Builder(this@MainActivity)
-        with(alertDialogBuilder) {
-            setTitle(dialogTitle)
-            setMessage(dialogMessage)
-            setCancelable(false)
-            setPositiveButton(getString(R.string.positive)) { _, _ ->
-                if (type == FIRST_NUMBER) {
-                    mainViewModel.setNumber(first_number, true)
-                    Toast.makeText(this@MainActivity, "${first_number.value}", Toast.LENGTH_SHORT)
-                        .show()
-                    setImageNumber()
-                } else {
-                    mainViewModel.setSecondNumber(second_number, true)
-                    Toast.makeText(this@MainActivity, "${second_number.value}", Toast.LENGTH_SHORT)
-                        .show()
-                    setSecondImageNumber()
-                }
+        val alertDialogBuilder = AlertDialog.Builder(this@MainActivity).create()
+        val view = layoutInflater.inflate(R.layout.choose_layout, null)
+        alertDialogBuilder.setView(view)
+        val btnPositive = view.findViewById<Button>(R.id.btn_plus)
+        val btnNegative = view.findViewById<Button>(R.id.btn_minus)
+        alertDialogBuilder.setCanceledOnTouchOutside(false)
+        btnPositive.setOnClickListener {
+            if (type == FIRST_NUMBER) {
+                mainViewModel.setNumber(first_number, true)
+                Toast.makeText(this@MainActivity, "${first_number.value}", Toast.LENGTH_SHORT)
+                    .show()
+                setImageNumber()
+            } else {
+                mainViewModel.setSecondNumber(second_number, true)
+                Toast.makeText(this@MainActivity, "${second_number.value}", Toast.LENGTH_SHORT)
+                    .show()
+                setSecondImageNumber()
             }
-            setNegativeButton(getString(R.string.negative)) { _, _ ->
-                if (type == FIRST_NUMBER) {
-                    mainViewModel.setNumber(first_number, false)
-                    Toast.makeText(this@MainActivity, "${first_number.value}", Toast.LENGTH_SHORT)
-                        .show()
-                    setImageNumber()
-                } else {
-                    mainViewModel.setSecondNumber(second_number, false)
-                    Toast.makeText(this@MainActivity, "${second_number.value}", Toast.LENGTH_SHORT)
-                        .show()
-                    setSecondImageNumber()
-                }
-            }
-            val alertDialog = alertDialogBuilder.create()
-            alertDialog.show()
+            alertDialogBuilder.dismiss()
         }
+        btnNegative.setOnClickListener {
+            if (type == FIRST_NUMBER) {
+                mainViewModel.setNumber(first_number, false)
+                Toast.makeText(this@MainActivity, "${first_number.value}", Toast.LENGTH_SHORT)
+                    .show()
+                setImageNumber()
+            } else {
+                mainViewModel.setSecondNumber(second_number, false)
+                Toast.makeText(this@MainActivity, "${second_number.value}", Toast.LENGTH_SHORT)
+                    .show()
+                setSecondImageNumber()
+            }
+            alertDialogBuilder.dismiss()
+        }
+        alertDialogBuilder.show()
     }
 
     private fun setImageNumber() {
