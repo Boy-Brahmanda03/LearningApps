@@ -21,7 +21,7 @@
     <string name="final_result">xy</string>
     <string name="cals">x +/- y =</string>
     <string name="result_of">Hasil dari</string>
-    <string name="silahkan_masukan_jenis_angka">Silahkan pilih jenis bilangan</string>
+    <string name="silahkan_masukan_jenis_angka">Pilih Jenis Bilangan</string>
     <string name="numberPlus">+</string>
     <string name="numberMinus">-</string>
     <string name="reset">reset</string>
