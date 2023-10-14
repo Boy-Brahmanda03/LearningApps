@@ -7,21 +7,19 @@
     android:background="@drawable/splashscreen"
     tools:context=".ui.HomeActivity">
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnStart"
-        android:layout_width="0dp"
+        android:layout_width="300dp"
         android:layout_height="60dp"
-        android:layout_marginBottom="96dp"
-        android:insetLeft="30dp"
-        android:insetRight="30dp"
-        android:text="START GAME"
-        app:cornerRadius="32dp"
+        android:layout_marginBottom="64dp"
+        android:background="@drawable/button_style"
+        android:elevation="5dp"
+        android:gravity="center"
+        android:text="@string/start_game"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        android:elevation="5dp"
-        />
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
