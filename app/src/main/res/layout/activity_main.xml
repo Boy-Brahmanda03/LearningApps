@@ -330,17 +330,18 @@
         android:id="@+id/tv_rest"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="3dp"
+        android:layout_marginTop="18dp"
         android:fontFamily="@font/eraserdust"
         android:text="@string/rest"
         android:textColor="@color/white"
         android:textSize="18sp"
         android:textStyle="bold"
-        android:layout_marginTop="18dp"
-        app:layout_constraintBottom_toTopOf="@+id/iv_rest"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/iv_rest"
+        app:layout_constraintHorizontal_bias="0.571"
         app:layout_constraintStart_toStartOf="@+id/iv_rest"
-        app:layout_constraintTop_toBottomOf="@+id/btn_count" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_count"
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/iv_rest"
