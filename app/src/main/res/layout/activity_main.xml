@@ -291,33 +291,35 @@
         app:layout_constraintTop_toTopOf="@+id/iv_number_8"
         app:layout_constraintVertical_bias="0.0" />
 
+
     <TextView
         android:id="@+id/iv_add"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_marginStart="124dp"
-        android:layout_marginTop="20dp"
-        android:gravity="center"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="104dp"
+        android:layout_marginTop="32dp"
         android:background="@drawable/bg_text_view_enable"
-        android:textColor="@color/black"
+        android:gravity="center"
         android:text="@string/add"
+        android:textColor="@color/black"
+        android:textSize="30sp"
         app:layout_constraintStart_toStartOf="@+id/iv_number_1"
         app:layout_constraintTop_toBottomOf="@+id/iv_number_5" />
 
     <TextView
         android:id="@+id/iv_minus"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:background="@drawable/bg_text_view_enable"
-        android:textColor="@color/black"
         android:gravity="center"
-        android:textStyle="bold"
         android:text="@string/minus"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/iv_add"
         app:layout_constraintStart_toEndOf="@+id/iv_add"
         app:layout_constraintTop_toTopOf="@+id/iv_add"
-        app:layout_constraintVertical_bias="1.0" />
-
+        app:layout_constraintVertical_bias="0.0" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_count"
