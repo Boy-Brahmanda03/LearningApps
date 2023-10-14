@@ -82,8 +82,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     private val mainViewModel by viewModels<MainViewModel>()
     private var value: Int? = null
     private var type: Boolean? = null
-    private var first_number = DataNumber(value, type)
-    private var second_number = DataNumber(value, type)
+    private var firstNumber = DataNumber(value, type)
+    private var secondNumber = DataNumber(value, type)
     private var isAdd: Boolean = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -126,14 +126,14 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
 
         binding.btnCount.setOnClickListener {
-            if (first_number.value == null) {
+            if (firstNumber.value == null) {
                 Toast.makeText(this, "input Manik Pertama!", Toast.LENGTH_SHORT).show()
-            } else if (second_number.value == null){
+            } else if (secondNumber.value == null){
                 Toast.makeText(this, "input Manik Kedua!", Toast.LENGTH_SHORT).show()
             } else {
                 setCals(isAdd)
                 finalResult(isAdd)
-                restCals(first_number.value!!, second_number.value!!)
+                restCals(firstNumber.value!!, secondNumber.value!!)
             }
 
         }
@@ -147,115 +147,115 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     override fun onClick(v: View) {
-        first_number.type = false
-        second_number.type = false
+        firstNumber.type = false
+        secondNumber.type = false
         when (v.id) {
             R.id.iv_number_1 -> {
-                first_number.value = 1
+                firstNumber.value = 1
                 showAlertDialog(FIRST_NUMBER)
-                mainViewModel.getNumber(first_number, FIRST_NUMBER)
+                mainViewModel.getNumber(firstNumber, FIRST_NUMBER)
             }
 
             R.id.iv_number_2 -> {
-                first_number.value = 2
+                firstNumber.value = 2
                 showAlertDialog(FIRST_NUMBER)
-                mainViewModel.getNumber(first_number, FIRST_NUMBER)
+                mainViewModel.getNumber(firstNumber, FIRST_NUMBER)
             }
 
             R.id.iv_number_3 -> {
-                first_number.value = 3
+                firstNumber.value = 3
                 showAlertDialog(FIRST_NUMBER)
-                mainViewModel.getNumber(first_number, FIRST_NUMBER)
+                mainViewModel.getNumber(firstNumber, FIRST_NUMBER)
             }
 
             R.id.iv_number_4 -> {
-                first_number.value = 4
+                firstNumber.value = 4
                 showAlertDialog(FIRST_NUMBER)
-                mainViewModel.getNumber(first_number, FIRST_NUMBER)
+                mainViewModel.getNumber(firstNumber, FIRST_NUMBER)
             }
 
             R.id.iv_number_5 -> {
-                first_number.value = 5
+                firstNumber.value = 5
                 showAlertDialog(FIRST_NUMBER)
-                mainViewModel.getNumber(first_number, FIRST_NUMBER)
+                mainViewModel.getNumber(firstNumber, FIRST_NUMBER)
             }
 
             R.id.iv_number_6 -> {
-                first_number.value = 7
+                firstNumber.value = 7
                 showAlertDialog(FIRST_NUMBER)
-                mainViewModel.getNumber(first_number, FIRST_NUMBER)
+                mainViewModel.getNumber(firstNumber, FIRST_NUMBER)
             }
 
             R.id.iv_number_7 -> {
-                first_number.value = 7
+                firstNumber.value = 7
                 showAlertDialog(FIRST_NUMBER)
-                mainViewModel.getNumber(first_number, FIRST_NUMBER)
+                mainViewModel.getNumber(firstNumber, FIRST_NUMBER)
             }
 
             R.id.iv_number_8 -> {
-                first_number.value = 8
+                firstNumber.value = 8
                 showAlertDialog(FIRST_NUMBER)
-                mainViewModel.getNumber(first_number, FIRST_NUMBER)
+                mainViewModel.getNumber(firstNumber, FIRST_NUMBER)
             }
 
             R.id.iv_number_9 -> {
-                first_number.value = 9
+                firstNumber.value = 9
                 showAlertDialog(FIRST_NUMBER)
-                mainViewModel.getNumber(first_number, FIRST_NUMBER)
+                mainViewModel.getNumber(firstNumber, FIRST_NUMBER)
             }
 
             R.id.iv_second_number_1 -> {
-                second_number.value = 1
+                secondNumber.value = 1
                 showAlertDialog(SECOND_NUMBER)
-                mainViewModel.getNumber(second_number, SECOND_NUMBER)
+                mainViewModel.getNumber(secondNumber, SECOND_NUMBER)
             }
 
             R.id.iv_second_number_2 -> {
-                second_number.value = 2
+                secondNumber.value = 2
                 showAlertDialog(SECOND_NUMBER)
-                mainViewModel.getNumber(second_number, SECOND_NUMBER)
+                mainViewModel.getNumber(secondNumber, SECOND_NUMBER)
             }
 
             R.id.iv_second_number_3 -> {
-                second_number.value = 3
+                secondNumber.value = 3
                 showAlertDialog(SECOND_NUMBER)
-                mainViewModel.getNumber(second_number, SECOND_NUMBER)
+                mainViewModel.getNumber(secondNumber, SECOND_NUMBER)
             }
 
             R.id.iv_second_number_4 -> {
-                second_number.value = 4
+                secondNumber.value = 4
                 showAlertDialog(SECOND_NUMBER)
-                mainViewModel.getNumber(second_number, SECOND_NUMBER)
+                mainViewModel.getNumber(secondNumber, SECOND_NUMBER)
             }
 
             R.id.iv_second_number_5 -> {
-                second_number.value = 5
+                secondNumber.value = 5
                 showAlertDialog(SECOND_NUMBER)
-                mainViewModel.getNumber(second_number, SECOND_NUMBER)
+                mainViewModel.getNumber(secondNumber, SECOND_NUMBER)
             }
 
             R.id.iv_second_number_6 -> {
-                second_number.value = 7
+                secondNumber.value = 7
                 showAlertDialog(SECOND_NUMBER)
-                mainViewModel.getNumber(second_number, SECOND_NUMBER)
+                mainViewModel.getNumber(secondNumber, SECOND_NUMBER)
             }
 
             R.id.iv_second_number_7 -> {
-                second_number.value = 7
+                secondNumber.value = 7
                 showAlertDialog(SECOND_NUMBER)
-                mainViewModel.getNumber(second_number, SECOND_NUMBER)
+                mainViewModel.getNumber(secondNumber, SECOND_NUMBER)
             }
 
             R.id.iv__second_number_8 -> {
-                second_number.value = 8
+                secondNumber.value = 8
                 showAlertDialog(SECOND_NUMBER)
-                mainViewModel.getNumber(second_number, SECOND_NUMBER)
+                mainViewModel.getNumber(secondNumber, SECOND_NUMBER)
             }
 
             R.id.iv_second_number_9 -> {
-                second_number.value = 9
+                secondNumber.value = 9
                 showAlertDialog(SECOND_NUMBER)
-                mainViewModel.getNumber(second_number, SECOND_NUMBER)
+                mainViewModel.getNumber(secondNumber, SECOND_NUMBER)
             }
         }
     }
@@ -269,13 +269,13 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         alertDialogBuilder.setCanceledOnTouchOutside(false)
         btnPositive.setOnClickListener {
             if (type == FIRST_NUMBER) {
-                mainViewModel.setNumber(first_number, true)
-                Toast.makeText(this@MainActivity, "${first_number.value}", Toast.LENGTH_SHORT)
+                mainViewModel.setNumber(firstNumber, true)
+                Toast.makeText(this@MainActivity, "${firstNumber.value}", Toast.LENGTH_SHORT)
                     .show()
                 setImageNumber()
             } else {
-                mainViewModel.setSecondNumber(second_number, true)
-                Toast.makeText(this@MainActivity, "${second_number.value}", Toast.LENGTH_SHORT)
+                mainViewModel.setSecondNumber(secondNumber, true)
+                Toast.makeText(this@MainActivity, "${secondNumber.value}", Toast.LENGTH_SHORT)
                     .show()
                 setSecondImageNumber()
             }
@@ -283,13 +283,13 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         }
         btnNegative.setOnClickListener {
             if (type == FIRST_NUMBER) {
-                mainViewModel.setNumber(first_number, false)
-                Toast.makeText(this@MainActivity, "${first_number.value}", Toast.LENGTH_SHORT)
+                mainViewModel.setNumber(firstNumber, false)
+                Toast.makeText(this@MainActivity, "${firstNumber.value}", Toast.LENGTH_SHORT)
                     .show()
                 setImageNumber()
             } else {
-                mainViewModel.setSecondNumber(second_number, false)
-                Toast.makeText(this@MainActivity, "${second_number.value}", Toast.LENGTH_SHORT)
+                mainViewModel.setSecondNumber(secondNumber, false)
+                Toast.makeText(this@MainActivity, "${secondNumber.value}", Toast.LENGTH_SHORT)
                     .show()
                 setSecondImageNumber()
             }
@@ -458,9 +458,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun setCals(isAdd: Boolean) {
         if (isAdd) {
-            binding.tvCals.text = "${first_number.value} + ${second_number.value} ="
+            binding.tvCals.text = "${firstNumber.value} + ${secondNumber.value} ="
         } else {
-            binding.tvCals.text = "${first_number.value} - ${second_number.value} ="
+            binding.tvCals.text = "${firstNumber.value} - ${secondNumber.value} ="
         }
 
     }
@@ -468,10 +468,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     private fun finalResult(isAdd: Boolean) {
         val result: Int
         if (isAdd) {
-            result = mainViewModel.add(first_number.value, second_number.value)
+            result = mainViewModel.add(firstNumber.value, secondNumber.value)
             setImageResultList(result)
         } else {
-            result = mainViewModel.minus(first_number.value!!, second_number.value!!)
+            result = mainViewModel.minus(firstNumber.value!!, secondNumber.value!!)
             setImageResultList(result)
         }
         binding.tvFinalResult.text = "$result"
