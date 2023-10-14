@@ -390,7 +390,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             binding.ivResult.setImageDrawable(
                 AppCompatResources.getDrawable(
                     binding.ivResult.context,
-                    R.drawable.baseline_remove_24
+                    imageNegativeMap.getValue(0)
                 )
             )
 
@@ -403,7 +403,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             binding.ivRest.setImageDrawable(
                 AppCompatResources.getDrawable(
                     binding.ivResult.context,
-                    R.drawable.baseline_remove_24
+                    imageNegativeMap.getValue(0)
                 )
             )
         }
@@ -411,7 +411,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             binding.ivRest.setImageDrawable(
                AppCompatResources.getDrawable(
                     binding.ivResult.context,
-                   R.drawable.baseline_remove_24
+                   imageNegativeMap.getValue(0)
                 )
             )
         }
